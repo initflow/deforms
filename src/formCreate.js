@@ -1,4 +1,4 @@
-import Form from './common/Form'
+import Form from './common/form'
 
 const updateContext = (context) => {
   if ('forceUpdate' in context && typeof context.forceUpdate === 'function') {
