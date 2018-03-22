@@ -6,7 +6,7 @@ class Form extends Listening {
   schema = {}
   defaultData = {}
   fields = {}
-  submited = false
+  submitted = false
   valid = true
   onSubmit = null
   onChange = null
@@ -51,7 +51,7 @@ class Form extends Listening {
     if (event !== null && 'preventDefault' in event) {
       event.preventDefault()
     }
-    this.submited = true
+    this.submitted = true
     if (!this.valid) {
       return
     }
