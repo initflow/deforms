@@ -51,11 +51,14 @@ class Form extends Listening {
     if (event !== null && 'preventDefault' in event) {
       event.preventDefault()
     }
-    this.submitted = true
     if (!this.valid) {
+      if (!this.submitted) {
+        this.submitted = true
+        this.trigger('change', this)
+      }
       return
     }
-
+    this.submitted = true
     this.trigger('submit', this)
     if (this.onSubmit !== null) {
       const formData = this.getFormData()

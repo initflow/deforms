@@ -1,6 +1,6 @@
 {
   "name": "deforms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ES7 decorators for changing, submitimg and validating forms",
   "main": "lib/index.js",
   "engines": {
