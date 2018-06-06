@@ -25,7 +25,7 @@ class Form extends Listening {
         validation = null
       } = schema[name]
 
-      const field = new FormField()
+      const field = new FormField({ defaultValue })
       field.setValue(defaultValue)
       field.on('change', (formField) => this.onChangeField(name, formField))
 
@@ -98,6 +98,19 @@ class Form extends Listening {
     }
 
     return formData
+  }
+
+  reset = () => {
+    this.submitted = false
+
+    for (let name in this.fields) {
+      const field = this.fields[name]
+      field.off('change')
+      field.reset()
+      field.on('change', (formField) => this.onChangeField(name, formField))
+    }
+
+    this.validate()
   }
 }
 

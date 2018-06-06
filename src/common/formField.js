@@ -5,6 +5,12 @@ class FormField extends Listening {
   valid = true
   changed = false
   errorMessage = null
+  defaultValue = undefined
+
+  constructor ({ defaultValue }) {
+    super()
+    this.defaultValue = defaultValue
+  }
 
   setValue = (value) => {
     this.value = value
@@ -26,6 +32,11 @@ class FormField extends Listening {
   changeValue = (value) => {
     this.changed = true
     this.setValue(value)
+  }
+
+  reset = () => {
+    this.changed = false
+    this.setValue(this.defaultValue)
   }
 }
 
